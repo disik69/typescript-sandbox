@@ -1,5 +1,6 @@
 interface SquareConfig {
     color: string;
-    height: number;
+    readonly height: number;
     width?: number;
+    [index: string]: any;
 }

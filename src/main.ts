@@ -1,7 +1,13 @@
+import { log } from "./functions/log";
 import "./interfaces/SquareConfig";
 
 let config: SquareConfig = {color: 'black', height: 10};
 
-// comment
 
-console.log(config);
+log(
+	config,
+	[1, 2, 3]
+);
+
+
+// comment
