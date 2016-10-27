@@ -17,7 +17,7 @@ var watchedBrowserify = watchify(browserify({
     entries: ['src/main.ts'],
     cache: {},
     packageCache: {}
-}).plugin(tsify));
+}).plugin(tsify, {target: 'es5'}));
 
 watchedBrowserify.on("log", gutil.log);
 
