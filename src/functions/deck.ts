@@ -1,11 +1,22 @@
 import { log } from "./log";
 
-let deck = {
+interface Deck {
+    suits: string[];
+    cards: number[];
+    createCardPicker(this: Deck): () => Card;
+}
+
+interface Card {
+    suit: string;
+    card: number;
+}
+
+let deck: Deck = {
     suits: ["hearts", "spades", "clubs", "diamonds"],
     cards: Array(52),
-    createCardPicker: function() {
+    createCardPicker: function(this: Deck) {
         // NOTE: the line below is now an arrow function, allowing us to capture 'this' right here
-        return () => {
+        return (): Card => {
             let pickedCard = Math.floor(Math.random() * 52);
             let pickedSuit = Math.floor(pickedCard / 13);
 
